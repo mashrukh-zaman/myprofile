@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashrukh Zaman — Aspiring PhD Researcher</title>
+    <meta name="description" content="Mashrukh Zaman — Machine Learning, Business Analytics. CV, publications, projects, contact.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14' font-size='16'%3EMZ%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --accent: #0b6b6b;
+            --bg: #ffffff;
+            --text: #111;
+            --muted: #666;
+            --card-bg: #fff;
+            --border: #eee;
+            --radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #eaeaea;
+            --muted: #aaa;
+            --card-bg: #1e1e1e;
+            --border: #333;
+            --accent: #00b5b5;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition-speed);
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 28px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(6px);
+            background-color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid var(--border);
+            z-index: 50;
+            transition: background-color var(--transition-speed);
+        }
+
+        body.dark header {
+            background-color: rgba(18, 18, 18, 0.9);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand h1 {
+            font-size: 18px;
+        }
+
+        .brand .subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .btn {
+            border-radius: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--accent);
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 22px;
+            background: none;
+            border: none;
+            color: var(--text);
+        }
+        
+        .dark-toggle {
+            cursor: pointer;
+            font-size: 18px;
+            background: none;
+            border: none;
+            color: var(--text);
+            margin-left: 10px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 36px 0;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            margin-bottom: 16px;
+            color: var(--muted);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 30px rgba(15, 15, 15, 0.04);
+            transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        /* --- UPDATED PROFILE PHOTO STYLES START --- */
+        .profile-photo {
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+            color: var(--muted);
+        }
+
+        .profile-img {
+            width: 100%;
+            max-height: 320px; 
+            object-fit: cover;
+            border-radius: 10px 10px 0 0; 
+        }
+        /* --- UPDATED PROFILE PHOTO STYLES END --- */
+
+
+        /* Sections */
+        section {
+            margin: 28px 0;
+        }
+
+        h3 {
+            margin-bottom: 12px;
+        }
+
+        .two-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        ul.clean {
+            list-style: none;
+        }
+
+        li.item {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        li.item:last-child {
+            border-bottom: none;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        /* Forms */
+        .form-row {
+            display: grid;
+            gap: 8px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            background-color: var(--card-bg);
+            color: var(--text);
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 26px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Utilities */
+        .muted {
+            color: var(--muted);
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .two-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navlinks {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 28px;
+                background-color: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 12px;
+                width: 200px;
+                box-shadow: 0 8px 30px rgba(15, 15, 15, 0.1);
+            }
+
+            .navlinks.is-visible {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand">
+                    <div style="width:48px;height:48px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">MZ</div>
+                    <div>
+                        <h1>Mashrukh Zaman</h1>
+                        <div class="subtitle">Aspiring PhD Researcher • ML & Analytics</div>
+                    </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                    <div class="navlinks">
+                        <a href="#research">Research</a>
+                        <a href="#publications">Publications</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact-form" class="btn">Contact</a>
+                    </div>
+                    <button class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+                    <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="intro">
+                    <div class="card">
+                        <h2>Hi — I’m Mashrukh Zaman</h2>
+                        <p class="muted">Multidisciplinary researcher with a background in engineering, business, and computer science. I focus on ML for healthcare, analytics, and decision systems.</p>
+                        <p><strong>Research Interests:</strong> ML · Image Segmentation · Medical Imaging</p>
+                        <p>
+                            <a href="https://drive.google.com/file/d/1ODLp1MONq6G1zVn5dU9EimTnh6iOi-OV/view?usp=sharing" class="btn" download>Download CV (PDF)</a>
+                            <a href="#contact-form" style="margin-left:12px">Email me</a>
+                        </p>
+                    </div>
+
+                    <section id="research-experience">
+                        <h3>Research Experience</h3>
+                        <div class="card">
+                            <p><strong>Current focus:</strong> Developing deep learning models for medical image segmentation for Peripheral Artery Disease (PAD), and exploring U-Net and CNN-based architectures. </p>
+                            <ul class="clean">
+                                <li class="item"><strong>M.Sc. Thesis Research</strong> — BUET (Present)</li>
+                                <li class="item"><strong>Research Engineer</strong> — AIMS Lab, United International University (July 2021 – Nov 2021)</li>
+                                <li class="item"><strong>Undergraduate Thesis</strong> — Image Recognition in The Perspective of Bangladesh</li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section id="publications">
+                        <h3>Publications & Projects</h3>
+                        <div class="card">
+                            <ul class="clean">
+                                <li class="item"><strong>IEEE Region 10 Symposium (TENSYMP), 2021:</strong> "A Relative Comparison of Different CNN Models..."</li>
+                                <li class="item"><strong>SN Computer Science (Springer Nature):</strong> "A Review of the Application of Artificial Intelligence in Vascular Disease..." (Under Revision)</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <aside>
+                    <div class="card">
+                        <div class="profile-photo">
+                            <img src="https://github.com/mashrukh-zaman/phd-profile/blob/9cf09b910a2b45f12b36a90130cc95297c8877d1/DSC_0363-1%20(1).jpg" alt="Mashrukh Zaman - Aspiring PhD Researcher" class="profile-img">
+                            
+                            <div style="margin-top: 15px; padding: 0 18px 18px 18px;">
+                                <div style="font-size:18px;font-weight:700">Mashrukh Zaman</div>
+                                <div class="muted">MSc (ICT) · MBA · BSc (EEE)</div>
+                                <p class="muted small">Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px">
+                            <div class="small muted">Quick Links</div>
+                            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                                <a href="#research-experience">Research</a>
+                                <a href="#publications">Publications</a>
+                                <a href="#projects">Projects</a>
+                                <a href="#contact-form">Contact</a>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px">
+                            <div class="small muted">Profiles</div>
+                            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                                <a href="https://www.researchgate.net/profile/Mashrukh-Zaman">ResearchGate</a>
+                                <a href="https://github.com/mashrukh-zaman">GitHub</a>
+                                <a href="https://www.linkedin.com/in/mashrukh-zaman/">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            
+            <section id="education" class="card">
+                <h3>Academic Background</h3>
+                <ul class="clean">
+                    <li class="item"><strong>M.Sc. in Information and Communication Technology</strong> — Bangladesh University of Engineering and Technology (BUET) | 2021 – Thesis Ongogin
+                        <br>CGPA: 3.35/4.00</li>
+                    <li class="item"><strong>MBA in Marketing</strong> — Institute of Business Administration (IBA), University of Dhaka | 2023 – 2025
+                        <br>CGPA: 3.06/4.00</li>
+                    <li class="item"><strong>B.Sc. in Electrical and Electronic Engineering</strong> — Ahsanullah University of Science and Technology (AUST) | 2016 – 2021
+                        <br>CGPA: 2.97/4.00</li>
+                </ul>
+            </section>
+            
+            <section id="skills" class="card">
+                <h3>Technical Skills</h3>
+                <div class="skills" style="margin-top:12px">
+                    <span class="pill">Python</span>
+                    <span class="pill">C/C++</span>
+                    <span class="pill">TensorFlow</span>
+                    <span class="pill">PyTorch</span>
+                    <span class="pill">Scikit-learn</span>
+                    <span class="pill">Power BI</span>
+                    <span class="pill">MATLAB</span>
+                    <span class="pill">SQL</span>
+                    <span class="pill">Arduino</span>
+                    <span class="pill">Raspberry Pi</span>
+                    <span class="pill">LaTeX</span>
+                    <span class="pill">MS Office</span>
+                </div>
+            </section>
+            
+            <section id="projects" class="card">
+                <h3>Selected Projects</h3>
+                <div class="two-grid" style="margin-top:12px">
+                    <div>
+                        <ul class="clean">
+                            <li class="item"><strong>Johnson Counter:</strong> VLSI project comparing power consumption of D and JK Flip Flops.</li>
+                            <li class="item"><strong>Automatic Power Factor Improvement:</strong> Real-time measurement and correction system.</li>
+                            <li class="item"><strong>Traffic Control & Alert System:</strong> RFID-based traffic rule monitoring.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="clean">
+                            <li class="item"><strong>Voice-Controlled Smart Home System:</strong> IoT automation using Arduino and Google Assistant.</li>
+                            <li class="item"><strong>AI Agent for Flappy Bird:</strong> Reinforcement learning agent mimicking human gameplay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="extracurricular" class="card">
+                <h3>Awards & Extracurricular</h3>
+                <ul class="clean">
+                    <li class="item"><strong>Co-founder, Tetra Pico (EdTech Startup):</strong> Developed tutorials bridging engineering theory and practice.</li>
+                    <li class="item"><strong>Finalist, NEST Business Incubation Hub:</strong> Selected with startup Tetra Pico.</li>
+                    <li class="item"><strong>Co-founder, Story of Frames (Event Photography Team):</strong> Led a 4-member team, managed clients and operations.</li>
+                </ul>
+            </section>
+            
+            <section id="contact-form" class="card">
+                <h3>Contact</h3>
+                <div class="two-grid">
+                    <div>
+                        <p class="muted">Email is the best way to reach me. Please include a short message describing opportunities or collaboration requests.</p>
+                        <p><strong>Email:</strong> <a href="mailto:mashrukh.zaman@gmail.com">mashrukh.zaman@gmail.com</a></p>
+                        <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+                        <p><strong>Profiles:</strong> <a href="https://www.linkedin.com/in/mashrukh-zaman/">LinkedIn</a> · <a href="https://www.researchgate.net/profile/Mashrukh-Zaman">ResearchGate</a> · <a href="https://github.com/mashrukh-zaman">GitHub</a></p>
+                    </div>
+                    <div>
+                        <p class="muted" style="margin-top:0;">Alternatively, you can click the button below to open your preferred email client:</p>
+                        <a href="mailto:mashrukh.zaman@gmail.com?subject=Inquiry%20from%20Portfolio%20Website&body=Dear%20Mashrukh%2C%0A%0AI%20am%20writing%20to%20you%20regarding%20..." class="btn" target="_blank" style="margin-top:10px; display:inline-block; width:100%; text-align:center;">Compose Email Now</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container center">
+            <div class="muted">© Mashrukh Zaman — Aspiring PhD Researcher • Built with ❤️ • Last updated: Sep 22, 2025</div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const body = document.body;
+            const darkToggle = document.querySelector('.dark-toggle');
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.navlinks');
+
+            function toggleDarkMode() {
+                body.classList.toggle('dark');
+                const isDark = body.classList.contains('dark');
+                localStorage.setItem('dark-mode', isDark ? 'on' : 'off');
+                darkToggle.textContent = isDark ? '☀️' : '🌙';
+                darkToggle.setAttribute('aria-label', isDark ? 'Toggle light mode' : 'Toggle dark mode');
+            }
+
+            function toggleMobileNav() {
+                navLinks.classList.toggle('is-visible');
+            }
+
+            // Check for saved preference or system preference on load
+            if (localStorage.getItem('dark-mode') === 'on' || (localStorage.getItem('dark-mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                body.classList.add('dark');
+            }
+            darkToggle.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+            darkToggle.setAttribute('aria-label', body.classList.contains('dark') ? 'Toggle light mode' : 'Toggle dark mode');
+
+            darkToggle.addEventListener('click', toggleDarkMode);
+            mobileNavToggle.addEventListener('click', toggleMobileNav);
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 900) {
+                        navLinks.classList.remove('is-visible');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
